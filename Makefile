@@ -1,5 +1,5 @@
-CC=gcc
-CFLAGS=-Wall -O2
+CC=clang
+CFLAGS=-Wall -O3
 LIBS=-lm
 
 all: sat_ops
