@@ -1,0 +1,6 @@
+#include "sat_ops.h"
+
+#test sat_ops
+    fail_unless(sat_unsigned_add(3, 2) == 5, "sat unsigned borked");
+
+
