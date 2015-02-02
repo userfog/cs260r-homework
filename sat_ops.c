@@ -1,7 +1,33 @@
+/*
+Author: Zachary Fogelson
+Class: CS260r
+Instructor: Eddie Kohler
+Date: 2/2/2015
+
+
+Notes:
+
+To see all of my code / revisions please visit: 
+https://github.com/userfog/cs260r-homework
+
+Citation: 
+I was going about this assignment all wrong until reading
+the Understanding Integer Overflow in C/C++ paper and
+seeing its insight that all overflows can be detected
+prior to running the code. So, thanks to them for
+their insight. 
+
+Further Work:
+If I were to continue working on this I think it would be
+helpful to turn this code into macros / change my if syntax
+to be more concise.
+
+I look forward to seeing other peoples' submissions.
+
+*/
+
+
 #include <limits.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
 #include "sat_ops.h"
 
 unsigned long long umax[5] = {UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX};
