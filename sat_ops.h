@@ -1,6 +1,6 @@
 #ifndef ARITHTYPE
 // define this to a number between 0 and 4
-#define ARITHTYPE 4
+#define ARITHTYPE 3
 #endif
 
 #if ARITHTYPE == 0

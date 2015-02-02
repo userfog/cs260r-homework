@@ -22,13 +22,8 @@ long long min[5] = {CHAR_MIN, SHRT_MIN, INT_MIN, LONG_MAX, LLONG_MIN};
 
 
 /** Return the value of @x + @y using saturating unsigned addition. */
+
 myuint sat_unsigned_add(myuint x, myuint y){
-    if(x > (umax[ARITHTYPE] - y)){
-        return umax[ARITHTYPE];
-    }
-    return x + y;
-}
-/*myuint sat_unsigned_add(myuint x, myuint y){
     unsigned long long ls = sizeof(myuint)*8-1;
     myuint highest_order = (myuint) pow((unsigned long long) 2, ls);
     myuint sum = 0;
@@ -46,7 +41,7 @@ myuint sat_unsigned_add(myuint x, myuint y){
         printf("Norm\n");
         return sum ^ carry;
     }
-}*/
+}
 
 /** Return the value of @x - @y using saturating unsigned subtraction. */
 myuint sat_unsigned_sub(myuint x, myuint y){
@@ -80,19 +75,7 @@ mysint sat_signed_arith(mysint x, mysint y, myuint highest){
 
 
 /** Return the value of @x + @y using saturating signed addition. */
-
-
-mysint sat_signed_add(mysint x, mysint y){
-    if((x > 0) && (y > 0) && (x > (max[ARITHTYPE] - y))){
-        return max[ARITHTYPE];
-    }
-    if((x < 0) && (y < 0) && (x < (min[ARITHTYPE] - y))){
-        return min[ARITHTYPE];
-    }
-    return x + y;
-}
-
-/*mysint sat_signed_add(mysint x, mysint y)
+mysint sat_signed_add(mysint x, mysint y)
 {
     unsigned long long ls = sizeof(myuint)*8-1;
     myuint is_neg = (myuint) pow((unsigned long long) 2, ls);
@@ -113,6 +96,7 @@ mysint sat_signed_add(mysint x, mysint y){
         y = neg(y);
 
         mysint m = sat_signed_arith(x, y,highest); 
+        printf("%lld\n", m); 
         if(m == max[ARITHTYPE]){
             return min[ARITHTYPE];
         }
@@ -125,20 +109,11 @@ mysint sat_signed_add(mysint x, mysint y){
         mysint m = x + y;
         return m;
     }
-}*/
+}
 
 
 /** Return the value of @x - @y using saturating signed subtraction. */
 mysint sat_signed_sub(mysint x, mysint y){
-    if(y == min[ARITHTYPE] && x >= 0){
-        return max[ARITHTYPE];
-    } 
-    if((y < 0 && x < 0) || (y > 0 && x > 0)){
-        return x - y; 
-    } 
-    return sat_signed_add(x, neg(y));
-}
-/*mysint sat_signed_sub(mysint x, mysint y){
     if(y == min[ARITHTYPE] && x >= 0){
         return max[ARITHTYPE];
     }
@@ -153,4 +128,4 @@ mysint sat_signed_sub(mysint x, mysint y){
 
     return sat_signed_add(x, neg(y));
 
-}*/
+}

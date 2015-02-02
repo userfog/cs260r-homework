@@ -6,7 +6,7 @@
 
 unsigned long long umax[5] = {UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX};
 long long max[5] = {CHAR_MAX, SHRT_MAX, INT_MAX, LONG_MAX, LLONG_MAX};
-long long min[5] = {CHAR_MIN, SHRT_MIN, INT_MIN, LONG_MAX, LLONG_MIN};
+long long min[5] = {CHAR_MIN, SHRT_MIN, INT_MIN, LONG_MIN, LLONG_MIN};
 
 /** Return the value of @x + @y using saturating unsigned addition. */
 myuint sat_unsigned_add(myuint x, myuint y){
