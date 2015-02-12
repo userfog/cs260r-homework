@@ -1,4 +1,4 @@
-#include "./minunit/minunit.h"
+#include "minunit/minunit.h"
 #include "sat_ops.h"
 #include <limits.h>
 

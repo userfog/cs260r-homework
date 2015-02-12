@@ -1,0 +1,18 @@
+[kernel] preprocessing with "gcc -C -E -I.  insertion_frama.c"
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:47:[kernel] warning: Calling undeclared function __builtin_bswap32. Old style K&R code?
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:111:[kernel] warning: Calling undeclared function __builtin_bswap64. Old style K&R code?
+[value] Analyzing an incomplete application starting at insertion
+[value] Computing initial state
+[value] Initial state computed
+[value] Values of globals at initialization
+insertion_frama.c:10:[value] Loop invariant got status unknown.
+insertion_frama.c:15:[kernel] warning: out of bounds read. assert \valid_read(A+j);
+insertion_frama.c:17:[value] Loop invariant got status unknown.
+insertion_frama.c:22:[kernel] warning: out of bounds write. assert \valid(A+(int)(i+1));
+insertion_frama.c:25:[kernel] warning: out of bounds write. assert \valid(A+(int)(i+1));
+[value] Recording results for insertion
+[value] done for function insertion
+[value] ====== VALUES COMPUTED ======
+[value] Values at end of function insertion:
+          j ∈ {2} or UNINITIALIZED
+          S_A[0..1] ∈ [--..--]

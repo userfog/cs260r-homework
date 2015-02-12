@@ -28,6 +28,8 @@ I look forward to seeing other peoples' submissions.
 
 
 #include <limits.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "sat_ops.h"
 
 unsigned long long umax[5] = {UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX};
@@ -75,4 +77,10 @@ mysint sat_signed_sub(mysint x, mysint y){
         return x - y; 
     } 
     return sat_signed_add(x, neg(y));
+}
+
+int main(int argc, char *argv[]){
+	
+	myuint ans = sat_unsigned_add((myuint)atoi(argv[1]), (myuint)atoi(argv[2]));
+	printf("%d", ans);	
 }

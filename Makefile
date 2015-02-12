@@ -1,6 +1,6 @@
-CC=clang
+CC=gcc
 CFLAGS=-Wall -O2
-VERSION=sat_ops 
+VERSION=sat_ops_old 
 
 all: $(VERSION)
 

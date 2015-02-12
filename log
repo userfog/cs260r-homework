@@ -1,0 +1,60 @@
+[kernel] preprocessing with "gcc -C -E -I.  sat_ops_old.c"
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:47:[kernel] warning: Calling undeclared function __builtin_bswap32. Old style K&R code?
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:111:[kernel] warning: Calling undeclared function __builtin_bswap64. Old style K&R code?
+sat_ops_old.c:134:[kernel] warning: Calling undeclared function sat_unsigned. Old style K&R code?
+[metrics] Defined functions (10)
+          ======================
+           sat_unsigned_add (1 call); sat_unsigned_sub (0 call);
+           sat_signed_add (1 call); sat_signed_sub (0 call); bin (0 call);
+           neg (4 calls); sat_signed_arith (3 calls); main (0 call);
+           __bswap_32 (0 call); __bswap_64 (0 call); 
+          
+          Undefined functions (5)
+          =======================
+           __builtin_bswap32 (1 call); __builtin_bswap64 (1 call); printf (9 calls);
+           pow (3 calls); sat_unsigned (1 call); 
+          
+          Potential entry points (6)
+          ==========================
+           sat_unsigned_sub; sat_signed_sub; bin; main; __bswap_32; __bswap_64; 
+          
+          Global metrics
+          ============== 
+          Sloc = 128
+          Decision point = 24
+          Global variables = 3
+          If = 24
+          Loop = 1
+          Goto = 22
+          Assignment = 38
+          Exit point = 10
+          Function = 15
+          Function call = 24
+          Pointer dereferencing = 0
+          Cyclomatic complexity = 16
+[value] Analyzing a complete application starting at main
+[value] Computing initial state
+[value] Initial state computed
+[value] Values of globals at initialization
+        umax[0] ∈ {255}
+            [1] ∈ {65535}
+            [2] ∈ {4294967295}
+            [3..4] ∈ {-1}
+        max[0] ∈ {127}
+           [1] ∈ {32767}
+           [2] ∈ {2147483647}
+           [3..4] ∈ {9223372036854775807}
+        min[0] ∈ {-128}
+           [1] ∈ {-32768}
+           [2] ∈ {-2147483648}
+           [3] ∈ {9223372036854775807}
+           [4] ∈ {-9223372036854775808}
+[value] computing for function sat_unsigned <- main.
+        Called from sat_ops_old.c:134.
+[kernel] warning: Neither code nor specification for function sat_unsigned, generating default assigns from the prototype
+[value] using specification for function sat_unsigned
+[value] Done for function sat_unsigned
+[value] Recording results for main
+[value] done for function main
+[value] ====== VALUES COMPUTED ======
+[value] Values at end of function main:

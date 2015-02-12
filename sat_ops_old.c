@@ -4,21 +4,9 @@
 #include <math.h>
 #include "sat_ops.h"
 
-void bin(myuint num){
-    myuint i = 0;
-    printf("\nnum: %llu\n", num);
-    int j = 0;
-    int ls = sizeof(myuint)*8-1;
-    for(i = 1 << ls; i > 0; i = i / 2){
-        j += 1;
-        ((unsigned long long)num & i) ? printf("1") : printf("0");
-    } 
-    printf("\n%d\n", j); 
-}
-
-long long umax[5] = {UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX};
-long long max[5] = {CHAR_MAX, SHRT_MAX, INT_MAX, LONG_MAX, LLONG_MAX};
-long long min[5] = {CHAR_MIN, SHRT_MIN, INT_MIN, LONG_MAX, LLONG_MIN};
+unsigned long long umax[5] = {UCHAR_MAX, USHRT_MAX, UINT_MAX, ULONG_MAX, ULLONG_MAX};
+unsigned long long max[5] = {CHAR_MAX, SHRT_MAX, INT_MAX, LONG_MAX, LLONG_MAX};
+unsigned long long min[5] = {CHAR_MIN, SHRT_MIN, INT_MIN, LONG_MAX, LLONG_MIN};
 
 
 /** Return the value of @x + @y using saturating unsigned addition. */
@@ -39,7 +27,9 @@ myuint sat_unsigned_add(myuint x, myuint y){
     }
     else{
         printf("Norm\n");
-        return sum ^ carry;
+	myuint ret = sum ^ carry;
+	//@ assert ret >= sum && ret >= carry; 
+        return ret;
     }
 }
 
@@ -128,4 +118,12 @@ mysint sat_signed_sub(mysint x, mysint y){
 
     return sat_signed_add(x, neg(y));
 
+}
+
+int main(int argc, char *argv[]){
+	myuint i = 0; 
+	myuint j = 0;
+	sscanf(argv[1], "%llu", &i);
+	sscanf(argv[2], "%llu", &j);
+	return sat_unsigned_add(i, j);
 }
