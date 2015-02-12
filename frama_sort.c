@@ -1,9 +1,9 @@
 /*@ 
 	requires len > 0;
 	requires \valid_read(A+ (0..len-1));
-	ensures \forall int i; 1 <= i <= len-1 ==> A[i-1] <= A[i];
+	ensures \forall int i; 1 <= i <= len-1 ==> \result[i-1] <= \result[i];
 */
-void insertion(int *A, unsigned len)
+int *insertion(int *A, unsigned len)
 {
 	//@ assert len > 0;
 	if(len < 2) return;
@@ -33,8 +33,9 @@ void insertion(int *A, unsigned len)
 	requires len > 0;
 	requires \valid_read(A+ (0..len-1));
 	ensures \forall int t; 1 <= t <= len-1 ==> A[t-1] <= A[t];
+	assigns A[0..len-1];
 */
-void bubble(int *A, unsigned len)
+int *bubble(int *A, unsigned len)
 {
 	if (len < 2) return; 
 	//@ assert len >= 2;
@@ -42,7 +43,7 @@ void bubble(int *A, unsigned len)
 	//@ ghost int e = 0; 
 	//@ ghost int l = len;
 	int i;
-	for(i = 0; i < len; i++)
+	for(i = 0; i < len-1; i++)
 	{
 		int j;
 		for(j = i+1; j < len; j++)
@@ -58,4 +59,3 @@ void bubble(int *A, unsigned len)
 		//@ ghost e = i;
 	}
 }
-
