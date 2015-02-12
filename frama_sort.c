@@ -1,6 +1,6 @@
 /*@ 
 	requires len > 0;
-	requires \valid_read(A+ (0..len-1));
+	requires \valid(A+ (0..len-1));
 	ensures \forall int i; 1 <= i <= len-1 ==> \result[i-1] <= \result[i];
 */
 int *insertion(int *A, unsigned len)
@@ -31,7 +31,7 @@ int *insertion(int *A, unsigned len)
 
 /*@ 
 	requires len > 0;
-	requires \valid_read(A+ (0..len-1));
+	requires \valid(A+ (0..len-1));
 	ensures \forall int t; 1 <= t <= len-1 ==> A[t-1] <= A[t];
 	assigns A[0..len-1];
 */
